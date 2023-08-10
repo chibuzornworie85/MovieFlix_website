@@ -21,9 +21,9 @@ The application will now be running locally. Open your web browser and navigate 
 
 1. List Movies: On the homepage, you'll find a list of available movies. Each movie is represented by a poster and title.
 
-2. View Movie Details: Clicking on a movie from the list will take you to a detailed page dedicated to that movie. Here, you can find information such as the title, release year, genre, synopsis, and more.
+2. View Movie Details: Clicking on poster, you can find information such as the title, release year, genre, synopsis, and more.
 
-3. Search Movies: To search for movies by title, you can use the search bar located at the top of the homepage. Simply type in the title of the movie you're looking for, and the list will dynamically update to show matching results.
+3. Search Movies: To search for movies by title, you can use the search bar located at the top of the homepage. Simply type in the title of the movie you're looking for.
 
 * Contributing
 
