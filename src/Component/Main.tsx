@@ -61,7 +61,7 @@ export const Main: FC = () => {
 
   return (
     <>
-      <div className="text-[20px] font-[500]">
+      <div className="text-[20px] font-[500] flex flex-col gap-[20px]">
         <div className="flex gap-[10px] justify-center">
           <input
             type="text"
@@ -82,7 +82,7 @@ export const Main: FC = () => {
           </p>
         ) : (
           movieData && (
-            <div className="flex flex-col justify-center text-[#fff]">
+            <div className="flex flex-col justify-center text-[#fff] gap-[20px]">
               <p>Title: {movieData.Title}</p>
               <p>Details: {movieData.Plot}</p>
               <p>Year: {movieData.Year}</p>
