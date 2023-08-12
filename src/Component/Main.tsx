@@ -29,7 +29,7 @@ const fetchMovieData = async (apiKey: string, title: string) => {
     if (data.Response === "True") {
       return data;
     } else {
-      throw new Error("Movie not found check your text input");
+      throw new Error("Movie not found check your connection and text input");
     }
   } else {
     throw new Error("Error in API response.");
