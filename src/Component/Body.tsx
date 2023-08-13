@@ -26,7 +26,11 @@ const fetchMovies = async () => {
 };
 
 const Body: FC = () => {
-  const { data: movies, isLoading, isError } = useQuery<Movie[]>("movies", fetchMovies);
+  const {
+    data: movies,
+    isLoading,
+    isError,
+  } = useQuery<Movie[]>("movies", fetchMovies);
 
   const [selectedMovie, setSelectedMovie] = useState<MovieDetails | null>(null);
 
@@ -65,7 +69,10 @@ const Body: FC = () => {
         </ul>
         {selectedMovie && (
           <div className="flex items-center gap-[40px]">
-            <img src={selectedMovie.Poster} alt={`${selectedMovie.Title} poster`} />
+            <img
+              src={selectedMovie.Poster}
+              alt={`${selectedMovie.Title} poster`}
+            />
             <div>
               <h2>{selectedMovie.Title}</h2>
               <p>Year: {selectedMovie.Year}</p>

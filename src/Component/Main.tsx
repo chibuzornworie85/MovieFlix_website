@@ -9,6 +9,24 @@ interface Movie {
   Poster: string;
   Year: string;
   imdbID: string;
+  Actors: string;
+  Awards: string;
+  Country: string;
+  DVD: string;
+  BoxOffice: string;
+  Director: string;
+  Genre: string;
+  Language: string;
+  Metascore: string;
+  Production: string;
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Type: string;
+  Website: string;
+  Writer: string;
+  imdbRating: string;
+  imdbVotes: string;
   Response: "True" | "False";
 }
 
@@ -82,16 +100,32 @@ export const Main: FC = () => {
           </p>
         ) : (
           movieData && (
-            <div className="flex flex-col justify-center text-[#fff] gap-[20px]">
-              <p>Title: {movieData.Title}</p>
-              <p>Details: {movieData.Plot}</p>
-              <p>Year: {movieData.Year}</p>
-              <p>imdbID: {movieData.imdbID}</p>
-              <img
-                src={movieData.Poster}
-                alt={movieData.Title}
-                className="h-[300px] w-[300px]"
-              />
+            <div className="flex flex-col justify-center items-center text-[#fff] gap-[20px]">
+              <img src={movieData.Poster} alt={movieData.Title} />
+              <div>
+                <p>Title: {movieData.Title}</p>
+                <p>Details: {movieData.Plot}</p>
+                <p>Year: {movieData.Year}</p>
+                <p>imdbID: {movieData.imdbID}</p>
+                <p>Actors: {movieData.Actors}</p>
+                <p>Awards: {movieData.Awards}</p>
+                <p>BoxOffice: {movieData.BoxOffice}</p>
+                <p>Country: {movieData.Country}</p>
+                <p>DVD: {movieData.DVD}</p>
+                <p>Director: {movieData.Director}</p>
+                <p>Genre: {movieData.Genre}</p>
+                <p>Language: {movieData.Language}</p>
+                <p>Metascore: {movieData.Metascore}</p>
+                <p>Production: {movieData.Production}</p>
+                <p>Rated: {movieData.Rated}</p>
+                <p>Released: {movieData.Released}</p>
+                <p>Runtime: {movieData.Runtime}</p>
+                <p>Type: {movieData.Type}</p>
+                <p>Website: {movieData.Website}</p>
+                <p>Writer: {movieData.Writer}</p>
+                <p>imdbRating: {movieData.imdbRating}</p>
+                <p>imdbVotes: {movieData.imdbVotes}</p>
+              </div>
             </div>
           )
         )}
