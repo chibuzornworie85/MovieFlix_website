@@ -3,6 +3,7 @@ import "../App.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Movie } from "./Interfaces/Movie";
 
 interface RouteParams {
   imdbID: string;
@@ -42,11 +43,7 @@ interface MovieDetails extends Movie {
 
 const MovieDetailsPage: FC = () => {
   const params = useParams();
-  const imdbID = params.imdbID;
-
-  if (!imdbID) {
-    return <div>Invalid movie ID</div>;
-  }
+  const imdbID = params.imdbID ?? ""; 
 
   const {
     data: movieDetails,
@@ -55,6 +52,10 @@ const MovieDetailsPage: FC = () => {
   } = useQuery<MovieDetails>(["movieDetails", imdbID], () =>
     fetchMovieDetails(imdbID)
   );
+
+  if (!imdbID) {
+    return <div>Invalid movie ID</div>;
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -76,7 +77,7 @@ const MovieDetailsPage: FC = () => {
             <div>
               <h2>{movieDetails.Title}</h2>
               <p>Year: {movieDetails.Year}</p>
-              <p>Details: {movieDetails.Plot}</p>
+              <p>Description: {movieDetails.Plot}</p>
               <p>Year: {movieDetails.Actors}</p>
               <p>Awards: {movieDetails.Awards}</p>
               <p>Country: {movieDetails.Country}</p>

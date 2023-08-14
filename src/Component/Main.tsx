@@ -104,7 +104,7 @@ export const Main: FC = () => {
               <img src={movieData.Poster} alt={movieData.Title} />
               <div>
                 <p>Title: {movieData.Title}</p>
-                <p>Details: {movieData.Plot}</p>
+                <p>Description: {movieData.Plot}</p>
                 <p>Year: {movieData.Year}</p>
                 <p>imdbID: {movieData.imdbID}</p>
                 <p>Actors: {movieData.Actors}</p>

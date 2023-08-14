@@ -76,7 +76,7 @@ const Body: FC = () => {
             <div>
               <h2>{selectedMovie.Title}</h2>
               <p>Year: {selectedMovie.Year}</p>
-              <p>Details: {selectedMovie.Plot}</p>
+              <p>Description: {selectedMovie.Plot}</p>
             </div>
           </div>
         )}
