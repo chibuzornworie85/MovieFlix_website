@@ -3,43 +3,11 @@ import "../App.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { Movie } from "./Interfaces/Movie";
+import { MovieDetails } from "./Interfaces/Interface";
 
-interface RouteParams {
-  imdbID: string;
-}
-
-interface Movie {
-  Title: string;
-  imdbID: string;
-  Poster: string;
-}
-
-interface MovieDetails extends Movie {
-  Year: string;
-  Plot: string;
-  Actors: string;
-  Awards: string;
-  Country: string;
-  DVD: string;
-  BoxOffice: string;
-  Director: string;
-  Genre: string;
-  Language: string;
-  Metascore: string;
-  Production: string;
-  Rated: string;
-  Released: string;
-  Response: string;
-  Runtime: string;
-  Title: string;
-  Type: string;
-  Website: string;
-  Writer: string;
-  imdbID: string;
-  imdbRating: string;
-  imdbVotes: string;
-}
+// interface RouteParams {
+//   imdbID: string;
+// }
 
 const MovieDetailsPage: FC = () => {
   const params = useParams();

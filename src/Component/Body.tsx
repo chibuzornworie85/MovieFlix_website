@@ -2,17 +2,7 @@ import { FC, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-interface Movie {
-  Title: string;
-  imdbID: string;
-  Poster: string;
-}
-
-interface MovieDetails extends Movie {
-  Year: string;
-  Plot: string;
-}
+import { Movie, MovieDetails } from "./Interfaces/Interface";
 
 const fetchMovies = async () => {
   const response = await axios.get("https://www.omdbapi.com/", {

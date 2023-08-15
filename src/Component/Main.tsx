@@ -2,33 +2,7 @@ import { FC } from "react";
 import axios from "axios";
 import { useQuery, useQueryClient } from "react-query";
 import { useState } from "react";
-
-interface Movie {
-  Title: string;
-  Plot: string;
-  Poster: string;
-  Year: string;
-  imdbID: string;
-  Actors: string;
-  Awards: string;
-  Country: string;
-  DVD: string;
-  BoxOffice: string;
-  Director: string;
-  Genre: string;
-  Language: string;
-  Metascore: string;
-  Production: string;
-  Rated: string;
-  Released: string;
-  Runtime: string;
-  Type: string;
-  Website: string;
-  Writer: string;
-  imdbRating: string;
-  imdbVotes: string;
-  Response: "True" | "False";
-}
+import { Movie } from "./Interfaces/Interface";
 
 const fetchMovieData = async (apiKey: string, title: string) => {
   const baseUrl = "http://www.omdbapi.com/";
@@ -57,6 +31,7 @@ const fetchMovieData = async (apiKey: string, title: string) => {
 export const Main: FC = () => {
   const apiKey = "6633208c";
   const [movieTitle, setMovieTitle] = useState("");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const queryClient = useQueryClient();
 
   const { data: movieData, isError } = useQuery<Movie, Error>(
@@ -64,6 +39,12 @@ export const Main: FC = () => {
     () => fetchMovieData(apiKey, movieTitle),
     {
       enabled: false,
+      onError: (error) => {
+        setErrorMessage(error.message);
+      },
+      onSuccess: () => {
+        setErrorMessage(null);
+      },
     }
   );
 
@@ -94,12 +75,14 @@ export const Main: FC = () => {
             Search
           </button>
         </div>
-        {isError ? (
-          <p className="text-[#fff]">
-            Error: Movie not found check your spelling.
-          </p>
-        ) : (
-          movieData && (
+
+        {errorMessage && (
+          <div className="bg-red-500 text-white p-2 rounded-md">
+            {errorMessage}
+          </div>
+        )}
+        {isError ||
+          (movieData && (
             <div className="flex flex-col justify-center items-center text-[#fff] gap-[20px]">
               <img src={movieData.Poster} alt={movieData.Title} />
               <div>
@@ -127,8 +110,7 @@ export const Main: FC = () => {
                 <p>imdbVotes: {movieData.imdbVotes}</p>
               </div>
             </div>
-          )
-        )}
+          ))}
       </div>
     </>
   );
