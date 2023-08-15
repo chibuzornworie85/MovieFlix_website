@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Movie } from "./Interfaces/Interface";
 
 const fetchMovieData = async (apiKey: string, title: string) => {
-  const baseUrl = "http://www.omdbapi.com/";
+  const baseUrl = "https://www.omdbapi.com/";
   const params = {
     apikey: apiKey,
     t: title,
@@ -61,7 +61,7 @@ export const Main: FC = () => {
   return (
     <>
       <div className="text-[20px] font-[500] flex flex-col gap-[20px]">
-        <div className="flex gap-[10px] justify-center">
+        <div className="flex md:flex-row flex-col gap-[10px] justify-center">
           <input
             type="text"
             value={movieTitle}
