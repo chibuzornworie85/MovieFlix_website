@@ -3,11 +3,7 @@ import "../App.css";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { MovieDetails } from "./Interfaces/Interface";
-
-// interface RouteParams {
-//   imdbID: string;
-// }
+import { MovieDetails } from "../interfaces/movie";
 
 const MovieDetailsPage: FC = () => {
   const params = useParams();
@@ -81,7 +77,7 @@ const MovieDetailsPage: FC = () => {
 const fetchMovieDetails = async (imdbID: string) => {
   const response = await axios.get("https://www.omdbapi.com/", {
     params: {
-      apikey: "6633208c",
+      apikey: process.env.REACT_APP_APIKEY,
       i: imdbID,
     },
   });

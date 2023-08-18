@@ -17,6 +17,11 @@ npm start
 
 The application will now be running locally. Open your web browser and navigate to http://localhost:3000 to access MovieFlix.
 
+* Adding Your API Key
+
+To unlock the full potential of MovieFlix, remember to create a .env file in the project directory and include your API key. This step is crucial for accessing certain features of the application.
+
+
 * Features
 
 1. List Movies: On the homepage, you'll find a list of available movies. Each movie is represented by a poster and title.
