@@ -1,8 +1,10 @@
 import { FC, useState, useEffect } from "react";
-import { useQuery } from "react-query";
+import { useQuery, QueryClient, QueryClientProvider } from "react-query";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Movie, MovieDetails } from "../interfaces/movie";
+
+const queryClient = new QueryClient();
 
 const fetchMovies = async () => {
   const response = await axios.get("https://www.omdbapi.com/", {
@@ -71,13 +73,16 @@ const Body: FC = () => {
   }
 
   if (isError) {
-    return <div>Error fetching data</div>;
+    return <div>Error_fetching_data</div>;
   }
 
   return (
     <>
-      <div className="flex flex-col gap-[10px] items-center justify-center text-[#fff]">
-        <h1 className="text-[red] font-[800] text-[30px]">Movie List</h1>
+      <div
+        data-testid="serch-input"
+        className="flex flex-col gap-[20px] items-center justify-center text-[#fff]"
+      >
+        <h1 className="text-[red] font-[800] text-[30px]">MovieFlix List</h1>
         <div className="flex gap-[10px] md:flex-row flex-col">
           <input
             className="text-[#000] pl-[5px] rounded-[10px] py-[10px]"
@@ -140,4 +145,12 @@ const fetchMovieDetails = async (imdbID: string) => {
   return response.data;
 };
 
-export default Body;
+const App: React.FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Body />
+    </QueryClientProvider>
+  );
+};
+
+export default App;
