@@ -79,7 +79,7 @@ const Body: FC = () => {
   return (
     <>
       <div
-        data-testid="serch-input"
+        data-testid="search-section"
         className="flex flex-col gap-[20px] items-center justify-center text-[#fff]"
       >
         <h1 className="text-[red] font-[800] text-[30px]">MovieFlix List</h1>

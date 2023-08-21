@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import Body from "../Component/Body";
+import Body from "../components/Body";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { axiosMock } from "../__mocks__/axios";
 
@@ -16,13 +16,13 @@ test("renders the component and performs search", () => {
   expect(search).toBeInTheDocument();
 });
 
-test("renders all the return in body component", () => {
+test("renders the search section", () => {
   render(<Body />);
-  const bodyComponent = screen.getByTestId("serch-input");
+  const bodyComponent = screen.getByTestId("search-section");
   expect(bodyComponent).toBeInTheDocument();
 });
 
-test("renders the component and performs search", () => {
+test("renders the component and performs the search", () => {
   render(<Body />);
   fireEvent.change(screen.getByPlaceholderText("Search movies..."), {
     target: { value: "Batman" },

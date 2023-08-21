@@ -5,6 +5,6 @@ import App from "../App";
 
 test("renders the app component", () => {
   render(<App />);
-  const bodyCom = screen.getByTestId("hello");
+  const bodyCom = screen.getByTestId("app");
   expect(bodyCom).toBeInTheDocument();
 });
