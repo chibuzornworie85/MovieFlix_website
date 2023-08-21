@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
-import MovieDetailsPage from "./Component/Detail";
+import MovieDetailsPage from "../Component/Detail";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 test("renders the invalid movie ID", async () => {

@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import Body from "./Component/Body";
+import Body from "../Component/Body";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { axiosMock } from "./__mocks__/axios";
+import { axiosMock } from "../__mocks__/axios";
 
 test("renders the component and performs search", () => {
     axiosMock.get.mockResolvedValueOnce({ 
