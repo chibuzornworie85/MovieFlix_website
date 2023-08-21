@@ -30,7 +30,7 @@ test("renders the component and performs search", () => {
   fireEvent.click(screen.getByText("Search"));
 });
 
-test("renders after failed rendering body component", async () => {
+test("renders search after inputing text in inputfiled", async () => {
   const queryClient = new QueryClient();
   render(
     <QueryClientProvider client={queryClient}>
